@@ -1,23 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paws & Play</title>
+    <title>Paws & Play - Premium Pet Care</title>
+
+    <!-- FontAwesome for Footer Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
             width: 100%;
             overflow-x: hidden;
             background-color: white;
             font-family: Arial, sans-serif;
+            color: #333;
         }
 
         ::selection {
@@ -25,65 +29,95 @@
             color: white;
         }
 
+        /* Container Wrapper */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
         nav {
             width: 100%;
-            height: 115px;
-            margin: auto;
+            height: 90px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: white;
-            width: 100%;
-            margin-left: 40px;
             z-index: 1000;
-            background-color: white;
         }
 
         nav h1 {
             color: black;
-            font-size: 28px;
+            font-size: 26px;
+            line-height: 1.2;
         }
 
-        nav span {
-            font-size: 15px;
+        nav h1 span {
+            font-size: 14px;
+            color: rgb(247, 33, 69);
+            font-weight: normal;
         }
 
-        nav a {
+        nav .nav-links a {
             color: black;
             text-decoration: none;
-            margin: 15px;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: rgb(247, 33, 69);
         }
 
         button {
-            height: 40px;
-            width: 130px;
+            height: 42px;
+            padding: 0 24px;
             background-color: rgb(247, 33, 69);
             border: none;
             border-radius: 20px;
             color: white;
-            margin-right: 80px;
+            font-weight: bold;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
+        button:hover {
+            background-color: rgb(215, 20, 55);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
         .hero {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            gap: 20px;
+            padding: 40px 0;
+            gap: 40px;
         }
 
         .hero-left {
             width: 50%;
         }
 
-        .h1 {
+        .hero-left h1 {
             color: black;
-            font-size: 60px;
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 20px;
         }
 
-        .hero p {
-            line-height: 25px;
+        .hero-left p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
         }
 
         .hero-btn1 {
@@ -101,44 +135,60 @@
             background-color: rgb(228, 17, 52);
         }
 
-        .hero img {
-            height: 500px;
-            width: 500px;
+        .hero-img {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-img img {
+            height: 450px;
+            width: 100%;
+            max-width: 500px;
             border-radius: 20px;
             object-fit: cover;
         }
 
+        /* Stats / Value Section */
         .value {
-            width: 40%;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            margin: 20px 40px 30px;
-            font-size: 30px;
+            gap: 20px;
+            margin: 40px 0 60px;
+            font-size: 32px;
             color: rgb(238, 28, 63);
             font-weight: bold;
         }
 
         .value div {
+            text-align: center;
             flex: 1;
         }
 
+        .value h5 {
+            margin: 0;
+            font-size: 34px;
+        }
+
         .value p {
-            font-size: 16px;
-            color: black;
-            white-space: nowrap;
+            font-size: 15px;
+            color: #666;
+            font-weight: normal;
+            margin-top: 5px;
         }
 
-        .servicse {
+        /* Services Section */
+        .services-title {
             text-align: center;
-            margin-top: 80px;
-            margin-bottom: 10px;
+            margin-top: 60px;
+            font-size: 36px;
         }
 
-        .service {
+        .service-subtitle {
             text-align: center;
-            margin-top: 0;
+            color: #666;
             margin-bottom: 40px;
         }
 
@@ -146,57 +196,80 @@
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
-            margin: 40px;
+            margin-bottom: 40px;
         }
 
         .card1 {
             width: calc((100% - 60px) / 3);
             border: 1px solid #eeeeee;
             border-radius: 20px;
-            padding: 15px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s;
+        }
+
+        .card1:hover {
+            transform: translateY(-5px);
         }
 
         .card1 img {
             width: 100%;
-            height: 220px;
-            border-radius: 20px;
+            height: 200px;
+            border-radius: 15px;
             object-fit: cover;
+            margin-bottom: 15px;
         }
 
         .active {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .active h3 {
+            font-size: 20px;
         }
 
         .active h4 {
             color: rgb(238, 28, 63);
+            font-size: 18px;
         }
 
         .card1 p {
-            line-height: 24px;
+            line-height: 1.5;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
         }
 
         .thic {
-            line-height: 30px;
+            line-height: 1.8;
+            font-size: 14px;
+            font-weight: normal;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .card1 h5 {
+            color: #888;
+            font-size: 13px;
         }
 
         .service-button {
             display: flex;
             justify-content: center;
+            margin-bottom: 80px;
         }
 
-
-
-
-
+        /* About / Story Section */
         .story {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 50px;
-            margin: 80px 40px;
+            margin: 80px 0;
         }
 
         .story-left {
@@ -206,7 +279,7 @@
 
         .story-left img {
             width: 100%;
-            height: 500px;
+            height: 480px;
             border-radius: 20px;
             object-fit: cover;
         }
@@ -219,6 +292,7 @@
             padding: 15px 25px;
             border-radius: 15px;
             color: rgb(238, 28, 63);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .story-right {
@@ -227,21 +301,25 @@
 
         .story-right h4 {
             color: rgb(238, 28, 63);
+            margin-bottom: 10px;
         }
 
         .story-right h1 {
-            font-size: 38px;
+            font-size: 36px;
+            margin-bottom: 20px;
         }
 
         .story-right p {
-            line-height: 25px;
+            line-height: 1.6;
             color: gray;
+            margin-bottom: 15px;
         }
 
         .features {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            margin-top: 25px;
         }
 
         .features div {
@@ -249,32 +327,30 @@
         }
 
         .features h3 {
-            font-size: 17px;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #222;
         }
 
         .features p {
-            font-size: 14px;
+            font-size: 13px;
+            margin-bottom: 0;
         }
 
-
-
-
-
-
-
-
-
+        /* Gallery Section */
         .gallery {
             text-align: center;
-            margin: 80px 40px;
+            margin: 80px 0;
         }
 
         .gallery h4 {
             color: rgb(238, 28, 63);
+            margin-bottom: 10px;
         }
 
         .gallery h1 {
-            font-size: 38px;
+            font-size: 36px;
+            margin-bottom: 10px;
         }
 
         .gallery p {
@@ -290,195 +366,209 @@
 
         .gallery-images img {
             width: calc((100% - 60px) / 4);
-            height: 230px;
+            height: 220px;
             object-fit: cover;
             border-radius: 15px;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
         .gallery-images img:hover {
-            transform: scale(1.03);
+            transform: scale(1.04);
         }
 
-
-
-        .text {
+        .instagram-banner {
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: rgb(207, 57, 182);
             font-weight: bold;
-            width: 500px;
-            margin-left: 30%;
-            height: 110px;
-
-
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff5fb;
+            border-radius: 15px;
+            max-width: 500px;
         }
 
-
+        /* Reviews / Features Section */
+        .feature {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            margin: 60px 0 100px;
+            flex-wrap: wrap;
+        }
 
         .review-card {
             background-color: white;
-            width: 400px;
-            height: 500px;
-            position: relative;
-            top: 30px;
-            padding: 38px 36px;
-            border-radius: 25px;
-            box-shadow: 10px black;
-            border: 1px solid rgb(165, 159, 159);
+            width: calc((100% - 50px) / 3);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eaeaea;
         }
 
         .stars {
             color: #20c45a;
-            font-size: 25px;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
+            font-size: 20px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
         .review-text {
             color: #536071;
-            font-size: 23px;
-            line-height: 1.55;
-            margin-bottom: 35px;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
 
         .profile {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 15px;
         }
 
         .profile img {
-            width: 72px;
-            height: 72px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             object-fit: cover;
         }
 
         .profile h3 {
-            font-size: 22px;
+            font-size: 16px;
             color: #172033;
         }
 
         .profile p {
-            font-size: 18px;
+            font-size: 13px;
             color: #737d8d;
+            margin: 0;
         }
 
-
-        .feature {
-
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-
+        /* CTA Ready Section */
+        .ready {
+            background: #fff0f3;
+            text-align: center;
+            padding: 70px 20px;
+            border-radius: 25px;
+            margin-bottom: 80px;
         }
 
-        .all {
-            margin-left: 40px;
-        }
-
-        .ready{
+        .ready h1 {
             color: rgb(240, 32, 66);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 150px;
-            margin-left: 30%;
-            display: block;
-            padding-bottom: 100px;
+            font-size: 36px;
+            margin-bottom: 15px;
         }
 
-            /* FOOTER */
-    footer {
-      background-color: #15161a;
-      color: #aaa;
-      padding-top: 80px;
-    }
+        .ready p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1.5fr 1fr;
-      gap: 40px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+        .ready .btn1 {
+            background-color: rgb(247, 33, 69);
+            color: white;
+            margin-right: 10px;
+        }
 
-    .footer-col p {
-      margin-top: 15px;
-      font-size: 14px;
-      line-height: 1.7;
-    }
+        .ready .btn2 {
+            background-color: white;
+            color: rgb(247, 33, 69);
+            border: 1px solid rgb(247, 33, 69);
+        }
 
-    .footer-socials {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-    }
+        /* Footer */
+        footer {
+            background-color: #15161a;
+            color: #aaa;
+            padding-top: 60px;
+        }
 
-    .footer-socials a {
-      width: 38px;
-      height: 38px;
-      background: rgba(255,255,255,0.08);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: 0.3s;
-      text-decoration: none;
-    }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-            .footer-socials a:hover {
-      background: var(--primary);
-    }
+        .footer-col p {
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
 
-    .footer-col h4 {
-      color: #fff;
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
 
-    .footer-col ul {
-      list-style: none;
-    }
+        .footer-socials a {
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: 0.3s;
+            text-decoration: none;
+        }
 
-    .footer-col ul li {
-      margin-bottom: 10px;
-    }
+        .footer-socials a:hover {
+            background: rgb(247, 33, 69);
+        }
 
-    .footer-col ul a {
-      color: #aaa;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
 
-    .footer-col ul a:hover {
-      color: var(--primary);
-    }
+        .footer-col ul {
+            list-style: none;
+        }
 
-    .footer-bottom {
-      text-align: center;
-      padding: 25px 0;
-      font-size: 13px;
-      color: #777;
-    }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: rgb(247, 33, 69);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 13px;
+            color: #777;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="all">
+    <div class="container">
 
+        <!-- Navigation -->
         <nav>
             <h1>Paws & Play <br><span>Premium Pet Care</span></h1>
 
-            <div>
+            <div class="nav-links">
                 <a href="#">Services</a>
                 <a href="#">About</a>
                 <a href="#">Gallery</a>
@@ -489,512 +579,286 @@
             <button>Book Now</button>
         </nav>
 
+        <!-- Hero Section -->
         <div class="hero">
-
             <div class="hero-left">
-                <h1 class="h1">Where Every Pet <br> Gets the Royal <br> Treatment</h1>
+                <h1>Where Every Pet <br> Gets the Royal <br> Treatment</h1>
+                <p>Professional grooming, loving daycare, and comfortable boarding for your furry family members. Because they deserve the best.</p>
 
-                <p>
-                    Professional grooming, loving daycare, and comfortable
-                    <br> boarding for your furry family members. Because they deserve
-                    <br> the best.
-                </p>
-
-                <button class="hero-btn1">Book an Appointment</button>
-                <button class="hero-btn2">View Services</button>
+                <div class="hero-buttons">
+                    <button class="hero-btn1">Book an Appointment</button>
+                    <button class="hero-btn2">View Services</button>
+                </div>
             </div>
 
-            <div>
+            <div class="hero-img">
                 <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=600&fit=crop" alt="Dog">
             </div>
-
         </div>
 
+        <!-- Value Stats -->
         <div class="value">
-
             <div>
                 <h5>10K+</h5>
                 <p>Happy Pets</p>
             </div>
-
             <div>
                 <h5>8+</h5>
                 <p>Years Experience</p>
             </div>
-
             <div>
                 <h5>4.9</h5>
                 <p>Average Rating</p>
             </div>
-
             <div>
                 <h5>50+</h5>
                 <p>Services</p>
             </div>
-
         </div>
 
-        <h1 class="servicse">Our Services</h1>
-        <p class="service">Everything your pet needs for a happy, healthy life</p>
+        <!-- Services -->
+        <h1 class="services-title">Our Services</h1>
+        <p class="service-subtitle">Everything your pet needs for a happy, healthy life</p>
 
         <div class="cards">
 
             <div class="card1">
-                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600&h=400&fit=crop"
-                    alt="Full Grooming">
-
+                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600&h=400&fit=crop" alt="Full Grooming">
                 <div class="active">
                     <h3>Full Grooming</h3>
                     <h4>From $65</h4>
                 </div>
-
                 <p>Complete grooming package including bath, haircut, nail trim, ear cleaning, and teeth brushing.</p>
-
-                <h4 class="thic">
+                <div class="thic">
                     ✔ Bath & blow dry <br>
                     ✔ Breed-specific haircut <br>
                     ✔ Nail trim
-                </h4>
-
+                </div>
                 <h5>Duration: 2-3 hours</h5>
             </div>
 
             <div class="card1">
-                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600&h=400&fit=crop"
-                    alt="Bath and Brush">
-
+                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600&h=400&fit=crop" alt="Bath and Brush">
                 <div class="active">
                     <h3>Bath & Brush</h3>
                     <h4>From $35</h4>
                 </div>
-
                 <p>Refreshing bath with premium shampoo, blow dry, and thorough brushing to keep coat healthy.</p>
-
-                <h4 class="thic">
+                <div class="thic">
                     ✔ Premium shampoo <br>
                     ✔ Conditioning treatment <br>
                     ✔ Blow dry
-                </h4>
-
+                </div>
                 <h5>Duration: 1 hour</h5>
             </div>
 
             <div class="card1">
                 <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop" alt="Daycare">
-
                 <div class="active">
                     <h3>Daycare</h3>
                     <h4>$35/day</h4>
                 </div>
-
-                <p>Safe, supervised playtime with other dogs in our climate-controlled facility with indoor/outdoor
-                    areas.</p>
-
-                <h4 class="thic">
+                <p>Safe, supervised playtime with other dogs in our climate-controlled facility with indoor/outdoor areas.</p>
+                <div class="thic">
                     ✔ Supervised play groups <br>
                     ✔ Indoor/outdoor areas <br>
                     ✔ Naptime rest periods
-                </h4>
-
+                </div>
                 <h5>Duration: Daily</h5>
             </div>
 
             <div class="card1">
-                <img src="https://images.unsplash.com/photo-1551717743-49959800b1f6?w=600&h=400&fit=crop"
-                    alt="Overnight Boarding">
-
+                <img src="https://images.unsplash.com/photo-1551717743-49959800b1f6?w=600&h=400&fit=crop" alt="Overnight Boarding">
                 <div class="active">
                     <h3>Overnight Boarding</h3>
                     <h4>$55/night</h4>
                 </div>
-
                 <p>Comfortable overnight stays with cozy bedding, multiple play sessions, and lots of love.</p>
-
-                <h4 class="thic">
+                <div class="thic">
                     ✔ Private suites available <br>
                     ✔ Evening cuddle time <br>
                     ✔ 3+ play sessions daily
-                </h4>
-
+                </div>
                 <h5>Duration: Overnight</h5>
             </div>
 
             <div class="card1">
-                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600&h=400&fit=crop"
-                    alt="Nail Trim">
-
+                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600&h=400&fit=crop" alt="Nail Trim">
                 <div class="active">
                     <h3>Nail Trim</h3>
                     <h4>$15</h4>
                 </div>
-
                 <p>Quick and stress-free nail trimming by experienced groomers using gentle handling techniques.</p>
-
-                <h4 class="thic">
+                <div class="thic">
                     ✔ Gentle handling <br>
                     ✔ Dremel smoothing <br>
                     ✔ Paw pad check
-                </h4>
-
+                </div>
                 <h5>Duration: 15 min</h5>
             </div>
 
             <div class="card1">
-                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=600&fit=crop" alt="Dog">
-
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=600&fit=crop" alt="Puppy Package">
                 <div class="active">
                     <h3>Puppy Package</h3>
                     <h4>$45</h4>
                 </div>
-
                 <p>Special first grooming experience designed to make puppies comfortable with the grooming process.</p>
-
-                <h4 class="thic">
+                <div class="thic">
                     ✔ Gentle introduction <br>
                     ✔ Mini bath <br>
                     ✔ Face trim
-                </h4>
-
+                </div>
                 <h5>Duration: 1 hour</h5>
             </div>
 
         </div>
+
         <div class="service-button">
-            <button>Veiw All Services</button>
+            <button>View All Services</button>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
+        <!-- Story Section -->
         <div class="story">
-
             <div class="story-left">
-
                 <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?fit=crop&h=600&w=800" alt="Pets">
-
                 <div class="years">
                     <h2>8+ Years</h2>
                 </div>
-
             </div>
 
             <div class="story-right">
-
                 <h4>Our Story</h4>
-
                 <h1>A Place Where Pets Come First</h1>
-
-                <p>
-                    Paws & Play was founded in 2015 by Sarah Mitchell,
-                    a certified master groomer with a vision to create
-                    a stress-free environment where pets could receive
-                    top-quality care.
-                </p>
-
-                <p>
-                    What started as a small grooming salon has grown
-                    into Austin's premier pet care facility, offering
-                    grooming, daycare, and boarding services for dogs
-                    and cats of all sizes.
-                </p>
-
-                <p>
-                    Our team of certified professionals treats every
-                    pet like their own, using gentle handling techniques
-                    and positive reinforcement to ensure a happy experience.
-                </p>
+                <p>Paws & Play was founded in 2015 by Sarah Mitchell, a certified master groomer with a vision to create a stress-free environment where pets could receive top-quality care.</p>
+                <p>What started as a small grooming salon has grown into Austin's premier pet care facility, offering grooming, daycare, and boarding services for dogs and cats of all sizes.</p>
+                <p>Our team of certified professionals treats every pet like their own, using gentle handling techniques and positive reinforcement to ensure a happy experience.</p>
 
                 <div class="features">
-
                     <div>
                         <h3>✔ Certified Staff</h3>
                         <p>All groomers are nationally certified with ongoing education.</p>
                     </div>
-
                     <div>
                         <h3>✔ Fear-Free Certified</h3>
                         <p>We use fear-free handling techniques to minimize stress.</p>
                     </div>
-
                     <div>
                         <h3>✔ Premium Products</h3>
                         <p>Only the highest quality, pet-safe shampoos and products.</p>
                     </div>
-
                     <div>
                         <h3>✔ Climate Controlled</h3>
                         <p>Temperature-controlled facility for year-round comfort.</p>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
-
-
-
-
-
-
-
-
-
-
+        <!-- Gallery -->
         <div class="gallery">
-
             <h4>Our Gallery</h4>
-
             <h1>Happy Pets, Happy Moments</h1>
-
             <p>Take a look at the happy faces and beautiful moments at Paws & Play.</p>
 
             <div class="gallery-images">
-
                 <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500" alt="Dog">
-
                 <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500" alt="Cat">
-
                 <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500" alt="Dogs">
-
                 <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500" alt="Dog">
-
                 <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=500" alt="Dog">
-
                 <img src="https://images.unsplash.com/photo-1551717743-49959800b1f6?w=500" alt="Dogs">
-
                 <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=500" alt="Cat">
-
                 <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=500" alt="Cat">
-
             </div>
-
         </div>
 
-        <div class="text">
-            <p>Follow us on Instagram to see more happy pets! <br>
-
-                @pawsandplay</p>
+        <div class="instagram-banner">
+            <p>Follow us on Instagram to see more happy pets! <br> @pawsandplay</p>
         </div>
 
-
-
+        <!-- Reviews -->
         <div class="feature">
-
             <div class="review-card">
-
-                <div class="stars">
-                    ★ ★ ★ ★ ★
-                </div>
-
-                <p class="review-text">
-                    "My anxious rescue dog Max used to hate grooming,
-                    but the team at Paws & Play has completely changed
-                    his experience. He actually wags his tail when we
-                    pull up now!"
-                </p>
-
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <p class="review-text">"My anxious rescue dog Max used to hate grooming, but the team at Paws & Play has completely changed his experience. He actually wags his tail when we pull up now!"</p>
                 <div class="profile">
-
                     <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
-
                     <div>
                         <h3>Jessica Thompson</h3>
                         <p>Max, Golden Retriever</p>
                     </div>
-
                 </div>
-
             </div>
-
-
-
-
 
             <div class="review-card">
-
-                <div class="stars">
-                    ★ ★ ★ ★ ★
-                </div>
-
-                <p class="review-text">
-                    "My anxious rescue dog Max used to hate grooming,
-                    but the team at Paws & Play has completely changed
-                    his experience. He actually wags his tail when we
-                    pull up now!"
-                </p>
-
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <p class="review-text">"The daycare services are phenomenal. I get photo updates throughout the day, and my dog comes home happy and nicely tired out!"</p>
                 <div class="profile">
-
-                    <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
-
+                    <img src="https://i.pravatar.cc/100?img=33" alt="Profile">
                     <div>
-                        <h3>Jessica Thompson</h3>
-                        <p>Max, Golden Retriever</p>
+                        <h3>Michael Carter</h3>
+                        <p>Bella, Labrador</p>
                     </div>
-
                 </div>
-
             </div>
-
-
-
 
             <div class="review-card">
-
-                <div class="stars">
-                    ★ ★ ★ ★ ★
-                </div>
-
-                <p class="review-text">
-                    "My anxious rescue dog Max used to hate grooming,
-                    but the team at Paws & Play has completely changed
-                    his experience. He actually wags his tail when we
-                    pull up now!"
-                </p>
-
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <p class="review-text">"Clean facility, professional staff, and reasonable prices. Best grooming service in town by far!"</p>
                 <div class="profile">
-
-                    <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
-
+                    <img src="https://i.pravatar.cc/100?img=47" alt="Profile">
                     <div>
-                        <h3>Jessica Thompson</h3>
-                        <p>Max, Golden Retriever</p>
+                        <h3>Sarah Jenkins</h3>
+                        <p>Oliver, Poodle</p>
                     </div>
-
                 </div>
-
             </div>
-
-
-
-
-
         </div>
 
-<section class="ready">
+        <!-- CTA Section -->
+        <section class="ready">
+            <h1>Ready to Pamper Your Pet?</h1>
+            <p>Book an appointment today and give your furry friend the love and care <br> they deserve. First-time customers get 15% off their first grooming service!</p>
+            <button class="btn1">Book Appointment</button>
+            <button class="btn2">(555) 728-7529</button>
+        </section>
 
-    <h1>Ready to Pamper Your Pet?</h1>
+    </div>
 
-    <p>Book an appointment today and give your furry friend the love and care <br> they deserve. First-time customers get 15% off their first grooming service!</p>
-
-    <button class="btn1">Book Appointment</button>
-    <button class="btn2">(555) 728-7529</button>
-    
-</section>
-        
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <a href="#" class="logo-box" style="filter: brightness(10);">
-          <i class="fa-solid fa-paw logo-icon"></i>
-          <div class="logo-text">
-            <span style="color:#fff;">Paws & Play</span>
-            <span>Premium Pet Care</span>
-          </div>
-        </a>
-        <p>Premium pet grooming, daycare, and boarding services. Loving care for your furry family members since 2015.</p>
-        <div class="footer-socials">
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Paws & Play</h4>
+                <p>Premium pet grooming, daycare, and boarding services. Loving care for your furry family members since 2015.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <p>Mon-Fri: 7:00 AM - 7:00 PM</p>
+                <p>Saturday: 8:00 AM - 6:00 PM</p>
+                <p>Sunday: 9:00 AM - 5:00 PM</p>
+            </div>
         </div>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Opening Hours</h4>
-        <p>Mon-Fri: 7:00 AM - 7:00 PM</p>
-        <p>Saturday: 8:00 AM - 6:00 PM</p>
-        <p>Sunday: 9:00 AM - 5:00 PM</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Paws & Play. All rights reserved.</p>
-    </div>
-  </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Paws & Play. All rights reserved.</p>
+        </div>
+    </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
 </body>
+
 </html>
