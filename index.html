@@ -393,6 +393,46 @@
             display: block;
             padding-bottom: 100px;
         }
+
+            /* FOOTER */
+    footer {
+      background-color: #15161a;
+      color: #aaa;
+      padding-top: 80px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1fr;
+      gap: 40px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-col p {
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .footer-socials a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: 0.3s;
+      text-decoration: none;
+    }
     </style>
 </head>
 
@@ -817,6 +857,45 @@
     
 </section>
         
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#" class="logo-box" style="filter: brightness(10);">
+          <i class="fa-solid fa-paw logo-icon"></i>
+          <div class="logo-text">
+            <span style="color:#fff;">Paws & Play</span>
+            <span>Premium Pet Care</span>
+          </div>
+        </a>
+        <p>Premium pet grooming, daycare, and boarding services. Loving care for your furry family members since 2015.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Mon-Fri: 7:00 AM - 7:00 PM</p>
+        <p>Saturday: 8:00 AM - 6:00 PM</p>
+        <p>Sunday: 9:00 AM - 5:00 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Paws & Play. All rights reserved.</p>
+    </div>
+  </footer>
 
 
 
